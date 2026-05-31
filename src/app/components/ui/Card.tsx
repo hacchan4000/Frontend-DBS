@@ -26,7 +26,7 @@ const Card = ({
   const styles: string[] = ['p-6', 'rounded-2xl'];
 
   if (bgColor === 'liquid-glass') styles.push(
-    'bg-white/10',
+    'bg-black/15',
     'backdrop-blur-xl',
     'backdrop-saturate-150',
     'border border-white/20',
