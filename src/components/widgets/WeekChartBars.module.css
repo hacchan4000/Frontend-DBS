@@ -1,0 +1,87 @@
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  width: 100%;
+  height: 125px;
+}
+
+.column {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+}
+
+.track {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background-color: var(--color-card-bg-2);
+}
+
+.fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 8px;
+}
+
+.fill0 {
+  background: linear-gradient(
+    to bottom,
+    var(--color-entertainment),
+    var(--color-subscription) 49%,
+    var(--color-food-drinks) 94%
+  );
+}
+
+.fill1 {
+  background: linear-gradient(
+    to bottom,
+    var(--color-entertainment),
+    var(--color-shopping)
+  );
+}
+
+.fill2 {
+  background: linear-gradient(
+    to bottom,
+    var(--color-food-drinks),
+    var(--color-shopping)
+  );
+}
+
+.fill3 {
+  background: linear-gradient(
+    to bottom,
+    var(--color-shopping) 27%,
+    var(--color-food-drinks)
+  );
+}
+
+.fill4 {
+  background: linear-gradient(
+    to bottom,
+    var(--color-entertainment) 35%,
+    var(--color-food-drinks)
+  );
+}
+
+.fill5 {
+  background: linear-gradient(
+    to bottom,
+    var(--color-shopping),
+    var(--color-entertainment) 58%,
+    var(--color-food-drinks)
+  );
+}
+
+.fill6 {
+  background: linear-gradient(
+    to bottom,
+    var(--color-subscription) 37%,
+    var(--color-food-drinks)
+  );
+}

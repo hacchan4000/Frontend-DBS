@@ -1,0 +1,91 @@
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+.pageBackground {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background-image: url('/Background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 1.5rem 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .content {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+.greetingBlock {
+  margin-bottom: 1.75rem;
+  color: #ffffff;
+}
+
+.greetingTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 3rem;
+}
+
+.greetingSubtitle {
+  margin: 0.75rem 0 0;
+  max-width: 20rem;
+  font-size: 1.25rem;
+}
+
+.widgetContainer {
+  padding: 1.5rem;
+  border-radius: var(--radius-widget);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  background-color: var(--color-widget-container);
+  backdrop-filter: blur(var(--card-blur));
+  -webkit-backdrop-filter: blur(var(--card-blur));
+}
+
+@media (min-width: 640px) {
+  .widgetContainer {
+    padding: 2.5rem;
+  }
+}
+
+.widgetStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.widgetRow {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+@media (min-width: 1280px) {
+  .widgetRow {
+    flex-direction: row;
+  }
+}
+
+.widgetColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
