@@ -1,0 +1,10 @@
+.summary {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-second-text);
+}
+
+.summaryAmount {
+  color: var(--color-header-text);
+}

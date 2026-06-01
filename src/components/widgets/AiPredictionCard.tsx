@@ -1,0 +1,22 @@
+import { Card } from '../ui/Card'
+import { Button } from '../ui/Button'
+import { formatCurrency } from '../../lib/format'
+import { aiPrediction } from '../../utils/data'
+import styles from './AiPredictionCard.module.css'
+
+export function AiPredictionCard() {
+  return (
+    <Card variant="aiPrediction">
+      <div>
+        <h2 className={styles.title}>AI Prediction</h2>
+        <p className={styles.description}>
+          Next month, you will spend a total of
+        </p>
+      </div>
+      <p className={styles.amount}>{formatCurrency(aiPrediction)}</p>
+      <Button variant="white" fullWidth shape="pill">
+        Upload Transaction
+      </Button>
+    </Card>
+  )
+}

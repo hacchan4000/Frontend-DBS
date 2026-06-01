@@ -1,0 +1,61 @@
+.card {
+  border-radius: var(--radius-card);
+  background-color: var(--color-card-bg);
+  padding: 1.5rem;
+}
+
+.cardBlurred {
+  backdrop-filter: blur(var(--card-blur));
+}
+
+.cardThisWeek {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+}
+
+.cardAiPrediction {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  height: 319px;
+}
+
+.cardAddPurchase {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  transition: box-shadow 0.2s ease;
+}
+
+.cardAddPurchase:hover {
+  box-shadow: 0 0 0 2px rgb(0 156 255 / 0.4);
+}
+
+.cardLatestPurchase {
+  width: 100%;
+  max-width: 660px;
+}
+
+.cardGraphsAi {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 297px;
+}
+
+@media (min-width: 1024px) {
+  .cardGraphsAi {
+    flex-shrink: 0;
+  }
+}

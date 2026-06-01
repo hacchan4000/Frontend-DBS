@@ -1,0 +1,38 @@
+:root {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Borel', cursive;
+
+  --color-bg: #1c1c1e;
+  --color-bg-home: #1d3282;
+  --color-header-text: #ffffff;
+  --color-second-text: #bababa;
+  --color-card-bg: rgb(44 47 62 / 0.7);
+  --color-card-bg-2: #323643;
+  --color-card-bg-4: #2b2b2f;
+  --color-widget-container: rgb(34 34 34 / 0.7);
+  --color-footer: #373737;
+  --color-icon-blue: #009cff;
+  --color-lines: #6f6f6f;
+  --color-food-drinks: #667eed;
+  --color-shopping: #ed7824;
+  --color-entertainment: #cd84dc;
+  --color-subscription: #0eb921;
+  --color-auth-panel: rgb(37 37 40 / 0.8);
+  --color-header-bg: rgb(29 50 130 / 0.85);
+  --color-home-gradient-start: #2a4ba8;
+  --color-this-month-bg: rgb(55 55 55 / 0.6);
+  --color-text-gradient-mid: #d7d7d7;
+
+  --radius-card: 20px;
+  --radius-widget: 60px;
+  --radius-button: 12px;
+  --radius-pill: 44px;
+  --radius-auth: 48px;
+
+  --shadow-coin: 0 10px 24px rgb(0 0 0 / 0.25);
+  --header-blur: 12px;
+  --card-blur: 30px;
+
+  --layout-max-width: 1280px;
+  --layout-content-max: 967px;
+}

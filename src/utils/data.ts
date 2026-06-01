@@ -1,4 +1,3 @@
-
 export const USER_NAME = 'Aditya'
 
 export type Category =
