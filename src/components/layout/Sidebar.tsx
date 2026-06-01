@@ -1,22 +1,25 @@
-import { NavLink } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { cn } from '../../lib/classNames'
 import styles from './Sidebar.module.css'
 
 const items = [
   {
-    to: '/graphs',
+    href: '/graphs',
     label: 'Graphs',
     lightIcon: '/Button-Graphs_Light.png',
     darkIcon: '/Button-Graphs_Dark.png',
   },
   {
-    to: '/purchases',
+    href: '/purchases',
     label: 'Purchases',
     lightIcon: '/Button-Purchases_Light.png',
     darkIcon: '/Button-Purchases_Dark.png',
   },
   {
-    to: '/subscriptions',
+    href: '/subscriptions',
     label: 'Subscriptions',
     lightIcon: '/Button-Subscriptions_Light.png',
     darkIcon: '/Button-Subscriptions_Dark.png',
@@ -24,28 +27,33 @@ const items = [
 ] as const
 
 export function Sidebar() {
+  const pathname = usePathname()
+
   return (
     <aside className={styles.sidebar}>
       <nav className={styles.nav}>
-        {items.map(({ to, label, lightIcon, darkIcon }) => (
-          <NavLink key={to} to={to}>
-            {({ isActive }) => (
+        {items.map(({ href, label, lightIcon, darkIcon }) => {
+          const isActive =
+            pathname === href || pathname.startsWith(`${href}/`)
+
+          return (
+            <Link key={href} href={href}>
               <div
                 className={cn(
                   styles.navLink,
-                  isActive && styles.navLinkActive
+                  isActive && styles.navLinkActive,
                 )}
-            >
-              <img
-                src={isActive ? lightIcon : darkIcon}
-                alt=""
-                className={styles.navIcon}
-              />
-              <span>{label}</span>
-            </div>
-          )}
-        </NavLink>
-      ))}
+              >
+                <img
+                  src={isActive ? lightIcon : darkIcon}
+                  alt=""
+                  className={styles.navIcon}
+                />
+                <span>{label}</span>
+              </div>
+            </Link>
+          )
+        })}
       </nav>
     </aside>
   )

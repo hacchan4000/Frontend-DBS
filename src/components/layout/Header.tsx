@@ -1,4 +1,6 @@
-import { NavLink } from 'react-router-dom'
+'use client'
+
+import { AppNavLink } from '../ui/AppNavLink'
 import { USER_NAME } from '../../utils/data'
 import { cn } from '../../lib/classNames'
 import styles from './Header.module.css'
@@ -7,26 +9,26 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <NavLink to="/" className={styles.logo}>
+        <AppNavLink href="/home" className={styles.logo} exact>
           Smart Finance
-        </NavLink>
+        </AppNavLink>
         <nav className={styles.nav}>
-          <NavLink
-            to="/purchases"
-            className={({ isActive }) =>
+          <AppNavLink
+            href="/purchases"
+            className={(isActive) =>
               cn(styles.navLink, isActive && styles.navLinkActive)
             }
           >
             Purchases
-          </NavLink>
-          <NavLink
-            to="/graphs"
-            className={({ isActive }) =>
+          </AppNavLink>
+          <AppNavLink
+            href="/graphs"
+            className={(isActive) =>
               cn(styles.navLink, isActive && styles.navLinkActive)
             }
           >
             Graphs
-          </NavLink>
+          </AppNavLink>
           <a href="#about" className={styles.aboutLink}>
             About Us
           </a>

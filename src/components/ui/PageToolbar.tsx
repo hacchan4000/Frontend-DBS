@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './PageToolbar.module.css'
 
 interface PageToolbarProps {
@@ -21,10 +23,10 @@ export function PageToolbar({
         className={styles.addButton}
         aria-label="Add"
       >
-        <img src={'/Button-Plus.png'} alt="" className={styles.addIcon} />
+        <img src="/Button-Plus.png" alt="" className={styles.addIcon} />
       </button>
       <div className={styles.searchBox}>
-        <img src={'/Icon-Search.png'} alt="" className={styles.searchIcon} />
+        <img src="/Icon-Search.png" alt="" className={styles.searchIcon} />
         <input
           type="search"
           value={searchValue}

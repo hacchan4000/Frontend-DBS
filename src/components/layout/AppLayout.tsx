@@ -1,4 +1,6 @@
-import { Outlet } from 'react-router-dom'
+'use client'
+
+import type { ReactNode } from 'react'
 import { cn } from '../../lib/classNames'
 import { Header } from './Header'
 import { Sidebar } from './Sidebar'
@@ -7,11 +9,13 @@ import styles from './AppLayout.module.css'
 interface AppLayoutProps {
   variant?: 'home' | 'dashboard'
   showSidebar?: boolean
+  children: ReactNode
 }
 
 export function AppLayout({
   variant = 'dashboard',
   showSidebar = false,
+  children,
 }: AppLayoutProps) {
   const isHome = variant === 'home'
 
@@ -25,9 +29,7 @@ export function AppLayout({
       <Header />
       <div className={styles.body}>
         {showSidebar && <Sidebar />}
-        <main className={styles.main}>
-          <Outlet />
-        </main>
+        <main className={styles.main}>{children}</main>
       </div>
     </div>
   )

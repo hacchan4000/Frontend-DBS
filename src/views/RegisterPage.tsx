@@ -1,37 +1,41 @@
-import { Link, useNavigate } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { AuthShell } from '../components/auth/AuthShell'
 import { Button } from '../components/ui/Button'
 import { Input } from '../components/ui/Input'
 import styles from './AuthForm.module.css'
 
-export function LoginPage() {
-  const navigate = useNavigate()
+export function RegisterPage() {
+  const router = useRouter()
 
   return (
-    <AuthShell greeting="welcome back">
+    <AuthShell greeting="hello, welcome">
       <form
         className={styles.form}
         onSubmit={(e) => {
           e.preventDefault()
-          navigate('/')
+          router.push('/home')
         }}
       >
+        <Input label="Name" autoComplete="name" required />
         <Input label="E-mail" type="email" autoComplete="email" required />
         <Input
           label="Password"
           type="password"
-          autoComplete="current-password"
+          autoComplete="new-password"
           required
         />
         <div className={styles.submitWrap}>
           <Button type="submit" fullWidth>
-            Log In
+            Register
           </Button>
         </div>
         <p className={styles.footerText}>
-          Don&apos;t have an account?{' '}
-          <Link to="/register" className={styles.footerLink}>
-            Sign In here
+          Already have an account?{' '}
+          <Link href="/login" className={styles.footerLink}>
+            Log In here
           </Link>
         </p>
       </form>

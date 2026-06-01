@@ -12,7 +12,7 @@ export function LatestPurchaseCard() {
 
   return (
     <Card variant="latestPurchase">
-      <SectionTitle title="Latest Purchase" to="/purchases" />
+      <SectionTitle title="Latest Purchase" href="/purchases" />
       <div className={styles.listBlock}>
         {latestPurchases.map((purchase, index) => (
           <PurchaseRow
@@ -24,7 +24,7 @@ export function LatestPurchaseCard() {
       </div>
 
       <div className={styles.sectionSpacer}>
-        <SectionTitle title="Subscription Reminder" to="/subscriptions" />
+        <SectionTitle title="Subscription Reminder" href="/subscriptions" />
       </div>
       <div className={cn(styles.listBlock, styles.listBlockSubscriptions)}>
         {reminderSubs.map((sub, index) => (

@@ -9,7 +9,7 @@ export function ThisWeekCard() {
   return (
     <Card variant="thisWeek">
       <div>
-        <SectionTitle title="This Week" to="/graphs" />
+        <SectionTitle title="This Week" href="/graphs" />
         <div className={styles.summary}>
           <p>You spent a total of</p>
           <p className={styles.summaryAmount}>{formatCurrency(weeklyTotal)}</p>

@@ -1,22 +1,22 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import styles from './SectionTitle.module.css'
 
 interface SectionTitleProps {
   title: string
-  to?: string
+  href?: string
 }
 
-export function SectionTitle({ title, to }: SectionTitleProps) {
+export function SectionTitle({ title, href }: SectionTitleProps) {
   const content = (
     <>
       <h2 className={styles.title}>{title}</h2>
-      {to && <img src="/Button-Arrow.png" alt="" className={styles.icon} />}
+      {href && <img src="/Button-Arrow.png" alt="" className={styles.icon} />}
     </>
   )
 
-  if (to) {
+  if (href) {
     return (
-      <Link to={to} className={styles.link}>
+      <Link href={href} className={styles.link}>
         {content}
       </Link>
     )

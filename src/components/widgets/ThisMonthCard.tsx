@@ -7,7 +7,7 @@ import styles from './ThisMonthCard.module.css'
 export function ThisMonthCard() {
   return (
     <div className={styles.card}>
-      <SectionTitle title="This Month" to="/graphs" />
+      <SectionTitle title="This Month" href="/graphs" />
       <div className={styles.body}>
         <div className={styles.totalPanel}>
           <p className={styles.totalText}>
