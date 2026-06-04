@@ -3,27 +3,32 @@ import { ApiService } from "./api.service"
 export const AuthService = {
   login:(email:string, password:string)=>{
     return ApiService({
-      url:'authenthication',
-      method:'GET',
-      body:{ email,password }
-    })
-  },
-  register:(name:string, email:string, password:string)=>{
-    return ApiService({
-      url:'authenthication',
+      url:'authentications',
       method:'POST',
-      body:{ name,email,password  }
+      body:{ email,password },
+      authorization:false
     })
   },
+
+  register:(name:string,email:string,password:string)=>{
+    return ApiService({
+      url:'users',
+      method:'POST',
+      body:{name,email,password},
+      authorization:false
+    })
+  },
+
   refresh:(token:string)=>{
     return ApiService({
-      url:'authenthication',
+      url:'authentications',
       method:'PUT'
     })
   },
-  logout:(token:string)=>{
+
+  logout:()=>{
     return ApiService({
-      url:'authenthication',
+      url:'authentications',
       method:'DELETE'
     })
   },

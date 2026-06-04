@@ -1,15 +1,16 @@
+'use client'
+
 import React, { createContext, useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation';
-import { ApiService } from '@/services/api/api.service';
 import { AuthService } from '@/services/api/auth.service';
 import { showToast } from '@/components/atoms/toast';
 import { getErrorMessage } from '@/utils/handleError';
 
 
 interface AuthContextProps {
-  login: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-  getToken: () => string;
+  login:(email:string,password:string)=>Promise<any>;
+  logout:()=>void;
+  getToken:()=>string;
 }
 
 export const AuthContext = createContext<AuthContextProps>({ // ini buat objek global

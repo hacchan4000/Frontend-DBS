@@ -23,11 +23,7 @@ const Page = () => {
   });
 
   const onSubmit = async (data: LoginForm) => {
-    try {
-      await login(data.email, data.password);
-    } catch (error) {
-      console.error('Login failed:', error);
-    }
+    return await login(data.email, data.password);
   };
 
 
