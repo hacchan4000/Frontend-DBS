@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { createContext } from 'react'
 
-export const AuthContext = () => {
+export const AuthContext = createContext({
   
-}
+})
 
-export const AuthProvider = () => {
-  const login = async (email: string, password: string) => {
-  }
+export const AuthProvider = ({children}:{children:React.ReactNode}) => {
+  
 }
