@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react'
+import React, {useState} from 'react'
 import { Controller, useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 
@@ -9,13 +9,19 @@ import TextInput from '../../components/ui/TextInput';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { userSchema } from './schema';
 
-const page = () => {
+type FormData = {
+  name: string;
+  email: string;
+  password: string;
+};
 
+const page = () => {
   const router = useRouter();
-  const {
+  const { // ini dekonstruksi dr objek yg dihasilkan dr useForm
+      handleSubmit,
       control,
       formState: { isSubmitting, isValid },
-    } = useForm({
+    } = useForm({ //
       resolver: joiResolver(userSchema),
       mode: 'onChange',
       defaultValues: {
@@ -23,7 +29,12 @@ const page = () => {
         email: '',
         password: '',
       },
-    });
+    }); 
+
+  const onSubmit = (data:FormData) => {
+    // gimana cara aku dapetin value name, email n pass
+    const { name, email, password } = data
+  }
   return (
     <>
       <div className="space-y-6">
@@ -70,6 +81,7 @@ const page = () => {
           color="primary"
           className="w-full h-12 rounded-xl"
           disabled={!isValid || isSubmitting}
+          onClick={handleSubmit(onSubmit)}
         />
         
         <div className="text-white/80">

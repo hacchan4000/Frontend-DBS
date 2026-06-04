@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import '@/styles/global.css'
+import AppProvider from '@/context/AppProvider'
 
 export const metadata: Metadata = {
   title: 'Smart Finance',
@@ -15,8 +16,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className='scroll-smooth'>
+      <body>
+        <AppProvider>
+          {children}
+        </AppProvider>
+      </body>
     </html>
   )
 }
