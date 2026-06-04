@@ -52,8 +52,8 @@
   border-radius: var(--radius-widget);
   border: 1px solid rgb(255 255 255 / 0.08);
   background-color: var(--color-widget-container);
-  backdrop-filter: blur(var(--card-blur));
   -webkit-backdrop-filter: blur(var(--card-blur));
+  backdrop-filter: blur(var(--card-blur));
 }
 
 @media (min-width: 640px) {
