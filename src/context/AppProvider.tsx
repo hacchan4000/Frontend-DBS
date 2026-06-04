@@ -1,9 +1,12 @@
-import React, { createContext } from 'react'
+import { AuthProvider } from "./AuthContext";
+import React from 'react'
 
-
-export const AppProvider = ({children}:{children:React.ReactNode}) => {
-
+const AppProvider = ({children}:{children:React.ReactNode}) => {
   return (
-
+    <AuthProvider>
+      {children}
+    </AuthProvider>
   )
 }
+
+export default AppProvider

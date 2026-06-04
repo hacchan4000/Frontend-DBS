@@ -42,7 +42,7 @@ export const ApiService = async ({
       )
     );
 
-    const fullUrl = `${baseUrl}${url}${
+    const fullUrl = `${baseUrl}/${url}${
       queryString.toString()
         ? `?${queryString}`
         : ''
