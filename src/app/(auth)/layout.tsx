@@ -3,7 +3,7 @@
 import React from 'react'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image';
-import Card from '../components/ui/Card';
+import Card from '@/components/atoms/Card';
 
 interface AuthProps {
   children: React.ReactNode;
