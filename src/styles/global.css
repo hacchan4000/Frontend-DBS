@@ -37,3 +37,7 @@ a {
   white-space: nowrap;
   border: 0;
 }
+
+.my-font {
+  font-family: "Borel", cursive;
+}

@@ -9,7 +9,7 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <AppNavLink href="/home" className={styles.logo} exact>
+        <AppNavLink href="/" className={styles.logo} exact>
           Smart Finance
         </AppNavLink>
         <nav className={styles.nav}>
