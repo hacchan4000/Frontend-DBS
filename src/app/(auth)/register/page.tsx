@@ -3,11 +3,12 @@
 import React, {useState} from 'react'
 import { Controller, useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
-
 import Button from '../../components/ui/Button';
 import TextInput from '../../components/ui/TextInput';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { userSchema } from './schema';
+import { useAuth } from '@/hooks/useAuth';
+
 
 type FormData = {
   name: string;
@@ -15,13 +16,14 @@ type FormData = {
   password: string;
 };
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
+  const { register } = useAuth()
   const { // ini dekonstruksi dr objek yg dihasilkan dr useForm
       handleSubmit,
       control,
       formState: { isSubmitting, isValid },
-    } = useForm({ //
+    } = useForm<FormData>({ //
       resolver: joiResolver(userSchema),
       mode: 'onChange',
       defaultValues: {
@@ -31,9 +33,11 @@ const page = () => {
       },
     }); 
 
-  const onSubmit = (data:FormData) => {
+  const onSubmit = async(data:FormData) => {
     // gimana cara aku dapetin value name, email n pass
     const { name, email, password } = data
+
+    return await register(name, email, password)
   }
   return (
     <>
@@ -104,4 +108,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

@@ -22,7 +22,8 @@ export const AuthService = {
   refresh:(token:string)=>{
     return ApiService({
       url:'authentications',
-      method:'PUT'
+      method:'PUT',
+      body:{ refreshToken: token }
     })
   },
 

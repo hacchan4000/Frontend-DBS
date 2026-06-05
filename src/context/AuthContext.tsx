@@ -9,12 +9,14 @@ import { getErrorMessage } from '@/utils/handleError';
 
 interface AuthContextProps {
   login:(email:string,password:string)=>Promise<any>;
+  register:(name:string,email:string,password:string)=>Promise<any>;
   logout:()=>void;
   getToken:()=>string;
 }
 
 export const AuthContext = createContext<AuthContextProps>({ // ini buat objek global
   login: async () => {},
+  register: async () => {},
   logout: () => {},
   getToken: () => '',
 })
@@ -46,8 +48,32 @@ export const AuthProvider = ({children}:{children:React.ReactNode}) => {
   const getToken = ():string => {
     return localStorage.getItem('token') || '';
   }
+  const register = async(name:string,email:string,password:string) => {
+    try{
+      const hasil = await AuthService.register(name, email, password)
+      if(hasil){
+        localStorage.setItem('token', hasil.access_token)
+      }
+
+      showToast(
+      'Register successful',
+      'success'
+    );
+
+      navigation.push('/login')
+    }catch (error){
+      const pesan = getErrorMessage(error)
+
+      showToast(
+      pesan,
+      'error'
+    );
+    throw error
+    }
+    
+  }
   return (
-    <AuthContext.Provider value={{login, logout, getToken}}>
+    <AuthContext.Provider value={{login, logout, getToken, register}}>
       {children}
     </AuthContext.Provider>
   )
