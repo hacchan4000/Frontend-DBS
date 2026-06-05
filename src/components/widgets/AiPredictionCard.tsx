@@ -1,10 +1,15 @@
+'use client'
+
 import { Card } from '../ui/Card'
 import { Button } from '../ui/Button'
 import { formatCurrency } from '../../lib/format'
 import { aiPrediction } from '../../utils/data'
 import styles from './AiPredictionCard.module.css'
+import { useRouter } from 'next/navigation'
+
 
 export function AiPredictionCard() {
+  const router = useRouter()
   return (
     <Card variant="aiPrediction">
       <div>
@@ -14,7 +19,7 @@ export function AiPredictionCard() {
         </p>
       </div>
       <p className={styles.amount}>{formatCurrency(aiPrediction)}</p>
-      <Button variant="white" fullWidth shape="pill">
+      <Button variant="white" fullWidth shape="pill" onClick={()=>{router.push('/predict')}}>
         Upload Transaction
       </Button>
     </Card>
