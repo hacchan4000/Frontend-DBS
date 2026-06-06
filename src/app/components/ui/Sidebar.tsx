@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { cn } from '../../utils/classNames'
+import { cn } from '../../lib/classNames'
 import styles from './Sidebar.module.css'
 
 const items = [

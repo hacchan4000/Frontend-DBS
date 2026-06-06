@@ -1,5 +1,5 @@
 import type { Category } from '../../utils/data'
-import { categoryConfig } from '../../lib/categories'
+import { categoryConfig } from '../../utils/categories'
 import styles from './CategoryIcon.module.css'
 
 interface CategoryIconProps {

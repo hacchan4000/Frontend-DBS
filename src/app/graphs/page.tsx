@@ -1,15 +1,15 @@
-import { Card } from '../components/ui/Card'
-import { Button } from '../components/ui/Button'
-import { CategoryLegend } from '../components/widgets/CategoryLegend'
-import { WeekChartBars } from '../components/widgets/WeekChartBars'
-import { formatCurrency } from '../lib/format'
+import { Card } from '@/components/ui/Card'
+import { Button } from '@/components/ui/Button'
+import { CategoryLegend } from '@/components/widgets/CategoryLegend'
+import { WeekChartBars } from '@/components/widgets/WeekChartBars'
+import { formatCurrency } from '@/utils/format'
 import {
   aiPrediction,
   monthlyBreakdown,
   monthlyTotal,
   weeklyTotal,
-} from '../utils/data'
-import { cn } from '../lib/classNames'
+} from '@/utils/data'
+import { cn } from '@/utils/classNames'
 import styles from './GraphsPage.module.css'
 
 const weeklyRanges = [

@@ -1,7 +1,7 @@
 import { Card } from '../ui/Card'
 import { SectionTitle } from '../ui/SectionTitle'
 import { WeekChartBars } from './WeekChartBars'
-import { formatCurrency } from '../../lib/format'
+import { formatCurrency } from '../../utils/format'
 import { weeklyTotal } from '../../utils/data'
 import styles from './ThisWeekCard.module.css'
 

@@ -1,10 +1,11 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { ListPanel } from '../components/dashboard/ListPanel'
-import { SubscriptionRow } from '../components/ui/SubscriptionRow'
-import { subscriptions } from '../utils/data'
 import listStyles from '../components/dashboard/ListPanel.module.css'
+import { subscriptions } from '@/utils/data'
+import { ListPanel } from '@/components/dashboard/ListPanel'
+import { SubscriptionRow } from '@/components/ui/SubscriptionRow'
+
 
 export function SubscriptionsPage() {
   const [query, setQuery] = useState('')

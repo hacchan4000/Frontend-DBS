@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface CardProps {
@@ -12,6 +13,13 @@ interface CardProps {
     | 'primary';
   className?: string;
   onClick?: () => void;
+  variant?: ''
+  | 'default'
+  | 'thisWeek'
+  | 'aiPrediction'
+  | 'addPurchase'
+  | 'latestPurchase'
+  | 'graphsAi'
 }
 
 const Card = ({
@@ -21,19 +29,20 @@ const Card = ({
   shadow = false,
   className = '',
   onClick,
+  variant = ''
 }: CardProps) => {
   const styles: string[] = ['p-6', 'rounded-2xl'];
 
   if (bgColor === 'liquid-glass') styles.push(
-    'bg-black/20',
+    'bg-black/15',
     'backdrop-blur-xl',
     'backdrop-saturate-150',
     'border border-white/20',
     'shadow-lg'
-  );
+  );;
   if (bgColor === 'secondary') styles.push('bg-secondary');
   if (bgColor === 'dark-grey') styles.push('bg-[#2B2B2F]');
-  if (bgColor === 'semiTransparent') styles.push('bg-liquid-glass/20');
+  if (bgColor === 'semiTransparent') styles.push('bg-white/20');
   if (bgColor === 'primary') styles.push('bg-primary');
   if (border) styles.push('border-3', 'border-[var(--color-primary)]');
 
@@ -41,6 +50,9 @@ const Card = ({
 
   if (className) styles.push(className);
 
+  if (variant) {
+    
+  }
   return (
     <div onClick={onClick} className={styles.join(' ')}>
       {children}

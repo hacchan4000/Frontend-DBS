@@ -1,4 +1,4 @@
-import type { Category } from '../utils/data'
+import type { Category } from './data'
 
 export const categoryConfig: Record<
   Category,

@@ -1,7 +1,7 @@
 'use client'
 
 import type { ReactNode } from 'react'
-import { cn } from '../../lib/classNames'
+import { cn } from '../../utils/classNames'
 import { Header } from './Header'
 import { Sidebar } from './Sidebar'
 import styles from './AppLayout.module.css'

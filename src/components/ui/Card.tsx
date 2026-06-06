@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { cn } from '../../lib/classNames'
+import { cn } from '../../utils/classNames'
 import styles from './Card.module.css'
 
 type CardVariant =

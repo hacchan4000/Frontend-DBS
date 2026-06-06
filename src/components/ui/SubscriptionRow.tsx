@@ -1,5 +1,5 @@
 import type { Subscription } from '../../utils/data'
-import { formatCurrency } from '../../lib/format'
+import { formatCurrency } from '../../utils/format'
 import { Divider } from './Divider'
 import styles from './SubscriptionRow.module.css'
 

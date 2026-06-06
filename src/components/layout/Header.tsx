@@ -2,7 +2,7 @@
 
 import { AppNavLink } from '../ui/AppNavLink'
 import { USER_NAME } from '../../utils/data'
-import { cn } from '../../lib/classNames'
+import { cn } from '../../utils/classNames'
 import styles from './Header.module.css'
 
 export function Header() {

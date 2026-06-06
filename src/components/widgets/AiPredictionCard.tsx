@@ -2,7 +2,7 @@
 
 import { Card } from '../ui/Card'
 import { Button } from '../ui/Button'
-import { formatCurrency } from '../../lib/format'
+import { formatCurrency } from '../../utils/format'
 import { aiPrediction } from '../../utils/data'
 import styles from './AiPredictionCard.module.css'
 import { useRouter } from 'next/navigation'
