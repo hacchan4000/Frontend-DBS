@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Card from '@/components/atoms/Card';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/app/components/ui/Button';
 import { handleUpload } from '@/services/api/upload.service';
 
 const Page = () => {

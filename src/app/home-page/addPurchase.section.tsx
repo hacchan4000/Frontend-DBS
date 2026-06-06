@@ -1,7 +1,8 @@
-import { Card } from '@/ui/Card'
+
+import Card from '../components/atoms/Card'
 import styles from './AddPurchaseCard.module.css'
 
-export function AddPurchaseCard() {
+export function AddPurchase() {
   return (
     <Card variant="addPurchase">
       <p className={styles.prompt}>Add your purchases here!</p>

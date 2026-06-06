@@ -1,5 +1,5 @@
-import { weekChartHeights } from '../../utils/data'
-import { cn } from '../../utils/classNames'
+import { weekChartHeights } from '../../../utils/data'
+import { cn } from '../../../utils/classNames'
 import styles from './WeekChartBars.module.css'
 
 const fillClasses = [

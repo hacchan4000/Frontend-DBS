@@ -1,9 +1,9 @@
 'use client'
 
-import { AppNavLink } from '../ui/AppNavLink'
-import { USER_NAME } from '../../utils/data'
-import { cn } from '../../lib/classNames'
+import { cn } from '@/utils/classNames'
 import styles from './Header.module.css'
+import { USER_NAME } from '@/utils/data'
+App
 
 export function Header() {
   return (

@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui/Card'
-import { Button } from '@/components/ui/Button'
-import { CategoryLegend } from '@/components/widgets/CategoryLegend'
-import { WeekChartBars } from '@/components/widgets/WeekChartBars'
+import { Button } from '@/app/components/ui/Button'
+import { CategoryLegend } from '@/app/components/widgets/CategoryLegend'
+import { WeekChartBars } from '@/app/components/ui/WeekChartBars'
 import { formatCurrency } from '@/utils/format'
 import {
   aiPrediction,

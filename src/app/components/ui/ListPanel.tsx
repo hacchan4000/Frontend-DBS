@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { PageToolbar } from '../ui/PageToolbar'
+import { PageToolbar } from './PageToolbar'
 import styles from './ListPanel.module.css'
 
 interface ListPanelProps {

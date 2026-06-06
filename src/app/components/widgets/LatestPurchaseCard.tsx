@@ -2,8 +2,8 @@ import { Card } from '../ui/Card'
 import { SectionTitle } from '../ui/SectionTitle'
 import { PurchaseRow } from '../ui/PurchaseRow'
 import { SubscriptionRow } from '../ui/SubscriptionRow'
-import { purchases, subscriptions } from '../../utils/data'
-import { cn } from '../../utils/classNames'
+import { purchases, subscriptions } from '../../../utils/data'
+import { cn } from '../../../utils/classNames'
 import styles from './LatestPurchaseCard.module.css'
 
 export function LatestPurchaseCard() {

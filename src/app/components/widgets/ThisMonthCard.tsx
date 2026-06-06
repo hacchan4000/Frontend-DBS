@@ -1,7 +1,7 @@
 import { SectionTitle } from '../ui/SectionTitle'
 import { CategoryLegend } from './CategoryLegend'
-import { formatCurrency } from '../../utils/format'
-import { monthlyBreakdown, monthlyTotal } from '../../utils/data'
+import { formatCurrency } from '../../../utils/format'
+import { monthlyBreakdown, monthlyTotal } from '../../../utils/data'
 import styles from './ThisMonthCard.module.css'
 
 export function ThisMonthCard() {

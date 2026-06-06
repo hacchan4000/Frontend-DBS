@@ -1,6 +1,6 @@
-import type { Category, CategoryBreakdown } from '../../utils/data'
-import { formatCurrency } from '../../utils/format'
-import { cn } from '../../utils/classNames'
+import type { Category, CategoryBreakdown } from '../../../utils/data'
+import { formatCurrency } from '../../../utils/format'
+import { cn } from '../../../utils/classNames'
 import styles from './CategoryLegend.module.css'
 
 const dotClassByCategory: Record<Category, string> = {

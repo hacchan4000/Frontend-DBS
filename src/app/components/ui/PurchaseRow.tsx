@@ -1,5 +1,5 @@
-import type { Purchase } from '../../utils/data'
-import { formatCurrency } from '../../utils/format'
+import type { Purchase } from '../../../utils/data'
+import { formatCurrency } from '../../../utils/format'
 import { CategoryIcon } from './CategoryIcon'
 import { Divider } from './Divider'
 import styles from './PurchaseRow.module.css'
