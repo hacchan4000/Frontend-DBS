@@ -3,26 +3,26 @@ import { motion } from 'framer-motion';
 
 interface ButtonProps {
   label?: React.ReactNode; // can be text or icon
+  children?: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
-  color?: 'primary' | 'secondary' | 'blue';
-  variant?: 'text' | 'outlined' | 'contained';
+  color?: 'primary' | 'secondary' | 'blue' | 'black'
+  variant?: 'text' | 'outlined' | 'contained' | 'primary' | 'ghost' | 'white';
   disabled?: boolean;
   type?: 'button' | 'submit';
+  shape?: 'default' | 'pill';
   className?: string;
+  fullWidth?:boolean
 }
 
 const Button = ({
-  label,
-  onClick,
-  prefix,
-  suffix,
-  color = 'primary',
-  variant = 'contained',
-  disabled = false,
-  type = 'button',
-  className,
+  children,label,
+  onClick,prefix,
+  suffix,color = 'primary',
+  variant = 'contained',disabled = false,
+  type = 'button',fullWidth = false,
+  shape = 'default',className,
 }: ButtonProps) => {
   const containedPrimary = 'bg-primary enabled:hover:bg-primary/80 text-white';
   const containedSecondary =
@@ -54,6 +54,21 @@ const Button = ({
     if (color === 'primary') styles.push(textPrimary);
     if (color === 'secondary') styles.push(textSecondary);
   }
+  if (variant === 'white') {
+    styles.push('text-black bg-white');
+  }
+  if (variant === 'ghost') {
+    styles.push(textPrimary);
+  }
+
+
+  if (shape === 'pill') {
+    styles.push('rounded-[44px] pt-6 pb-6')
+  }
+  if(fullWidth){
+    styles.push('w-[100%]')
+  }
+
 
   return (
     <motion.button
@@ -72,6 +87,7 @@ const Button = ({
     >
       {prefix && <span className="mr-2">{prefix}</span>}
       {label && <span>{label}</span>} {/* Can be icon or text */}
+      {children && <>{children}</>}
       {suffix && <span className="ml-2">{suffix}</span>}
     </motion.button>
   );

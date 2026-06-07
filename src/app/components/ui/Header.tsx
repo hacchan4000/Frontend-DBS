@@ -3,7 +3,8 @@
 import { cn } from '@/utils/classNames'
 import styles from './Header.module.css'
 import { USER_NAME } from '@/utils/data'
-App
+import { AppNavLink } from './AppNavLink'
+
 
 export function Header() {
   return (

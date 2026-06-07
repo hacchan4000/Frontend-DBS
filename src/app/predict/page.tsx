@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import Card from '@/components/atoms/Card';
-import { Button } from '@/app/components/ui/Button';
 import { handleUpload } from '@/services/api/upload.service';
+import Button from '../components/atoms/Button';
+import Card from '../components/atoms/Card';
+
 
 const Page = () => {
   const [file, setFile] = useState<File | null>(null);

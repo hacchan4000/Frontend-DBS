@@ -27,11 +27,11 @@ interface CardProps {
 
 const variantClass: Record< CardVariant, string | undefined> = {
   default: undefined,
-  thisWeek: 'styles.cardThisWeek',
-  aiPrediction: 'styles.cardAiPrediction',
-  addPurchase: 'styles.cardAddPurchase',
-  latestPurchase: 'styles.cardLatestPurchase',
-  graphsAi: 'styles.cardGraphsAi',
+  thisWeek: 'flex flex-col justify-between w-[100%] max-w-[300px] h-[300px]',
+  aiPrediction: 'flex flex-col justify-between w-[100%] max-w-[300px] h-[319px]',
+  addPurchase: 'flex flex-col items-end justify-between w-[100%] max-w-[300px] h-[300px] transition-shadow duration-200 ease-linear hover:shadow-[0_0_0_2px_rgb(0_156_255_/_0.4)]',
+  latestPurchase: 'w-[100%] max-w-[660px]',
+  graphsAi: 'flex flex-col justify-between w-[100%] max-w-[297px] md:shrink-0',
 }
 
 const Card = ({

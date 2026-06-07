@@ -1,6 +1,5 @@
 'use client'
 
-import { AiPredictionCard } from './components/widgets/AiPredictionCard'
 import Greetings from './home-page/greetings.section'
 import Spending from './home-page/spending.section'
 import { AddPurchase } from './home-page/addPurchase.section'
@@ -9,6 +8,7 @@ import { usePathname } from 'next/navigation'
 import { Sidebar } from './components/ui/Sidebar'
 import { cn } from '@/utils/classNames'
 import { Header } from './components/ui/Header'
+import { Prediction } from './home-page/prediction.section'
 
 
 export default function Home() {
@@ -38,7 +38,7 @@ export default function Home() {
                   <div className='flex w-[100%] flex-col items-center justify-center gap-10 xl:flex-row'>
                     <Purchases />
                     <div className='flex flex-col gap-10'>
-                      <AiPredictionCard />
+                      <Prediction />
                       <AddPurchase />
                     </div>
 

@@ -5,26 +5,25 @@ import { SectionTitle } from '@/app/components/ui/SectionTitle'
 import { CategoryLegend } from '@/app/components/widgets/CategoryLegend'
 import { weeklyTotal } from '../../utils/data'
 import { WeekChartBars } from '@/app/components/ui/WeekChartBars'
-import styles from './ThisMonthCard.module.css'
 import Card from '../components/atoms/Card'
 
 
 function Monthly() {
   return (
-    <div className={styles.card}>
+    <Card>
       <SectionTitle title="This Month" href="/graphs" />
-      <div className={styles.body}>
-        <div className={styles.totalPanel}>
-          <p className={styles.totalText}>
-            <span className={styles.totalLead}>You spent a total of</span>
-            <span className={styles.totalAmount}>{formatCurrency(monthlyTotal)}</span>
+      <div className='flex flex-1 flex-col gap-4 sm:flex-row sm:items-center'>
+        <div className='flex items-end w-[100%] max-w-[287px] h-[206px] p-5 rounded-xl overflow-hidden bg-gradient-to-br from-[#323643] via-[rgba(44,47,62,0.7)] to-[#323643]'>
+          <p className='m-0 font-semibold bg-linear-to-r from-white via-[#d7d7d7] to-white bg-transparent bg-clip-text'>
+            <span className='block text-2xl'>You spent a total of</span>
+            <span className='block text-4xl'>{formatCurrency(monthlyTotal)}</span>
           </p>
         </div>
-        <div className={styles.legendWrap}>
+        <div className='flex-1 min-w-0'>
           <CategoryLegend items={monthlyBreakdown} />
         </div>
       </div>
-    </div>
+    </Card>
   )
 }
 

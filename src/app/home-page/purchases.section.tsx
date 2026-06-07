@@ -6,14 +6,16 @@ import { SectionTitle } from '@/app/components/ui/SectionTitle'
 import { PurchaseRow } from '@/app/components/ui/PurchaseRow'
 import { SubscriptionRow } from '@/app/components/ui/SubscriptionRow'
 
-export function Purchases() {
+export function Purchases() { // Latest purchases
   const latestPurchases = purchases.slice(0, 4)
   const reminderSubs = subscriptions.slice(0, 4)
+
+  const listBlock = 'flex flex-col gap-2 mt-3 pt-2 pr-4 pb-2 pl-2 rounded-[8px] bg-[#323643]'
 
   return (
     <Card variant="latestPurchase">
       <SectionTitle title="Latest Purchase" href="/purchases" />
-      <div className={styles.listBlock}>
+      <div className={listBlock}>
         {latestPurchases.map((purchase, index) => (
           <PurchaseRow
             key={purchase.id}
@@ -23,10 +25,10 @@ export function Purchases() {
         ))}
       </div>
 
-      <div className={styles.sectionSpacer}>
+      <div className='mt-4'>
         <SectionTitle title="Subscription Reminder" href="/subscriptions" />
       </div>
-      <div className={cn(styles.listBlock, styles.listBlockSubscriptions)}>
+      <div className={cn(listBlock, 'pl-4 pr-4')}>
         {reminderSubs.map((sub, index) => (
           <SubscriptionRow
             key={sub.id}
