@@ -3,7 +3,7 @@
 import React, { createContext, useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation';
 import { AuthService } from '@/services/api/auth.service';
-import { showToast } from '@/components/atoms/toast';
+import { showToast } from '@/app/components/atoms/toast';
 import { getErrorMessage } from '@/utils/handleError';
 
 
@@ -11,7 +11,7 @@ interface AuthContextProps {
   login:(email:string,password:string)=>Promise<any>;
   register:(name:string,email:string,password:string)=>Promise<any>;
   logout:()=>void;
-  getToken:()=>string;
+  getToken:()=>string | null;
 }
 
 export const AuthContext = createContext<AuthContextProps>({ // ini buat objek global
@@ -45,8 +45,11 @@ export const AuthProvider = ({children}:{children:React.ReactNode}) => {
     localStorage.removeItem('token');
     navigation.push('/login')
   }
-  const getToken = ():string => {
-    return localStorage.getItem('token') || '';
+  const getToken = ():string | null => {
+     if (typeof window === 'undefined') return null;
+
+    return localStorage.getItem('token');
+    // OR cookies depending on your implementation
   }
   const register = async(name:string,email:string,password:string) => {
     try{

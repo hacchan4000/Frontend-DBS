@@ -3,8 +3,8 @@
 import React, {useState} from 'react'
 import { Controller, useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
-import Button from '../../components/ui/Button';
-import TextInput from '../../components/ui/TextInput';
+import Button from '../../components/atoms/Button';
+import TextInput from '../../components/atoms/TextInput';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { userSchema } from './schema';
 import { useAuth } from '@/hooks/useAuth';

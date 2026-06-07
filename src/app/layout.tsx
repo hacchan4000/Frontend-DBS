@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import '@/styles/global.css'
 import AppProvider from '@/context/AppProvider'
+import { AuthProvider } from '@/context/AuthContext'
+
 
 export const metadata: Metadata = {
   title: 'Smart Finance',
@@ -18,9 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en" className='scroll-smooth'>
       <body>
-        <AppProvider>
-          {children}
-        </AppProvider>
+          <AuthProvider>
+            {children}
+          </AuthProvider>
       </body>
     </html>
   )
