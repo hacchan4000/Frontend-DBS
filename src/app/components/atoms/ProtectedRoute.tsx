@@ -2,30 +2,16 @@
 
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-export default function ProtectedRoute({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const { getToken } = useAuth();
-  const router = useRouter();
 
-  const [loading, setLoading] = useState(true);
+export default function ProtectedRoute({children}: {children: React.ReactNode}) {
+  const token = localStorage.getItem('access_Token')
 
-  useEffect(() => {
-    const token = getToken();
-
-    if (!token) {
-      router.replace('/login');
-      return;
-    }
-
-    setLoading(false);
-  }, []);
-
+  const router = useRouter()
+  if (!token) { // ini untuk block akses dr login ke home tanpa akses token
+    router.push('/')
+  }
   
-
-  return <>{children}</>;
+  return children
 }

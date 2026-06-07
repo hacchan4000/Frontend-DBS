@@ -41,3 +41,6 @@ a {
 .my-font {
   font-family: "Borel", cursive;
 }
+.my-background {
+  background-image: url('/Background.png');
+}
