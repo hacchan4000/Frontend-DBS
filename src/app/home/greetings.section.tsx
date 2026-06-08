@@ -1,8 +1,10 @@
 
+import { useAuth } from '@/hooks/useAuth'
 import React from 'react'
 
 const Greetings = () => {
-  const user_name = ''
+  const { user } = useAuth();  
+  const user_name = user?.name ;
   return (
     <div className='mb-7 text-white'>
       <h1 className='m-0 my-font text-6xl'>hello, {user_name}</h1>
