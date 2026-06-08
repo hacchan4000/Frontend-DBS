@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import listStyles from '../components/dashboard/ListPanel.module.css'
+import listStyles from '../components/ui/ListPanel.module.css'
 import { purchases } from '@/utils/data'
 import { ListPanel } from '@/app/components/ui/ListPanel'
 import { PurchaseRow } from '@/app/components/ui/PurchaseRow'

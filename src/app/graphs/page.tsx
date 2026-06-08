@@ -1,5 +1,5 @@
-import { Card } from '@/components/ui/Card'
-import { Button } from '@/app/components/ui/Button'
+'use client'
+
 import { CategoryLegend } from '@/app/components/widgets/CategoryLegend'
 import { WeekChartBars } from '@/app/components/ui/WeekChartBars'
 import { formatCurrency } from '@/utils/format'
@@ -10,7 +10,9 @@ import {
   weeklyTotal,
 } from '@/utils/data'
 import { cn } from '@/utils/classNames'
-import styles from './GraphsPage.module.css'
+import styles from '../components/ui/GraphsPage.module.css'
+import Card from '../components/atoms/Card'
+import Button from '../components/atoms/Button'
 
 const weeklyRanges = [
   { label: '27 April - 3 May', amount: weeklyTotal },
