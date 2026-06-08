@@ -62,6 +62,7 @@ export const AuthProvider = ({children}:{children:React.ReactNode}) => {
   }
   const register = async(name:string,email:string,password:string) => {
     try{
+    
       const hasil = await AuthService.register(name, email, password)
       if(hasil){
         localStorage.setItem('token', hasil.access_token)

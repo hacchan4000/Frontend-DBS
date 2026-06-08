@@ -1,5 +1,7 @@
 'use client';
 
+import { getErrorMessage } from "@/utils/handleError";
+
 interface RequestProps {
   url: string;
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
@@ -8,6 +10,7 @@ interface RequestProps {
   params?: Record<string, string | number>;
   authorization?: boolean;
 }
+
 
 export const DefaultHeaders = {
   Accept: 'application/json',
@@ -18,11 +21,12 @@ export const ApiService = async ({
   url,
   method = 'GET',
   body,
-  headers = {},
+  headers = DefaultHeaders,
   params = {},
   authorization = true,
 }: RequestProps) => {
-
+  try {
+    
   const baseUrl = process.env.NEXT_PUBLIC_EXPRESS_BASE_URL;
   const FlaskUrl = process.env.NEXT_PUBLIC_EXPRESS_BASE_URL2;
 
@@ -55,8 +59,7 @@ export const ApiService = async ({
     ? localStorage.getItem('token')
     : null;
 
-  const isFormData =
-    body instanceof FormData;
+  const isFormData = body instanceof FormData;
 
   const response = await fetch(fullUrl, {
     method,
@@ -84,4 +87,9 @@ export const ApiService = async ({
   }
 
   return data;
+  } catch (error) {
+    const message = getErrorMessage(error);
+    throw new Error(message);
+  }
+
 };
