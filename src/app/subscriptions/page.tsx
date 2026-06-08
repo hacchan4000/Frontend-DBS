@@ -7,7 +7,7 @@ import { ListPanel } from '@/app/components/ui/ListPanel'
 import { SubscriptionRow } from '@/app/components/ui/SubscriptionRow'
 
 
-export function SubscriptionsPage() {
+export default function SubscriptionsPage() {
   const [query, setQuery] = useState('')
 
   const filtered = useMemo(() => {

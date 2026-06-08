@@ -7,7 +7,7 @@ import { ListPanel } from '@/app/components/ui/ListPanel'
 import { PurchaseRow } from '@/app/components/ui/PurchaseRow'
 
 
-export function PurchasesPage() {
+export default function PurchasesPage() {
   const [query, setQuery] = useState('')
 
   const filtered = useMemo(() => {

@@ -20,7 +20,7 @@ const weeklyRanges = [
   { label: '11 May - 17 May', amount: 310_000 },
 ]
 
-export function GraphsPage() {
+export default function GraphsPage() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
