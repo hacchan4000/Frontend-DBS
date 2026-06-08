@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import '@/styles/global.css'
 import AppProvider from '@/context/AppProvider'
-import { AuthProvider } from '@/context/AuthContext'
 
 
 export const metadata: Metadata = {
@@ -20,9 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className='scroll-smooth'>
       <body>
-          <AuthProvider>
-            {children}
-          </AuthProvider>
+          <AppProvider>{children}</AppProvider>
       </body>
     </html>
   )

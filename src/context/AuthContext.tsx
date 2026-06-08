@@ -5,9 +5,11 @@ import { usePathname, useRouter } from 'next/navigation';
 import { AuthService } from '@/services/api/auth.service';
 import { showToast } from '@/app/components/atoms/toast';
 import { getErrorMessage } from '@/utils/handleError';
+import { Users } from '../model/User';
 
 
 interface AuthContextProps {
+  user?:Users
   login:(email:string,password:string)=>Promise<any>;
   register:(name:string,email:string,password:string)=>Promise<any>;
   logout:()=>void;
@@ -22,6 +24,7 @@ export const AuthContext = createContext<AuthContextProps>({ // ini buat objek g
 })
 
 export const AuthProvider = ({children}:{children:React.ReactNode}) => {
+  const [user, setUser] = useState(null)
   const navigation = useRouter();
   const pathname = usePathname();
 
