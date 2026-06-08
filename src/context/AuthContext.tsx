@@ -41,7 +41,7 @@ export const AuthProvider = ({children}:{children:React.ReactNode}) => {
 
       setUser(hasil.data)
       showToast('Success login', 'success')
-      navigation.push('/')
+      navigation.push('/home')
       return hasil
 
     } catch (error) {
