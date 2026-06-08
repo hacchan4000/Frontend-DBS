@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import '@/styles/global.css'
 import AppProvider from '@/context/AppProvider'
+import { Toast } from './components/atoms/toast'
 
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en" className='scroll-smooth'>
       <body>
           <AppProvider>{children}</AppProvider>
+          <Toast />
       </body>
     </html>
   )

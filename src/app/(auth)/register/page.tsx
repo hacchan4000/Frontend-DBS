@@ -19,6 +19,12 @@ type FormData = {
 const Page = () => {
   const router = useRouter();
   const { register } = useAuth()
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+
   const { // ini dekonstruksi dr objek yg dihasilkan dr useForm
       handleSubmit,
       control,
@@ -35,9 +41,9 @@ const Page = () => {
 
   const onSubmit = async(data:FormData) => {
     // gimana cara aku dapetin value name, email n pass
-    const { name, email, password } = data
-
-    return await register(name, email, password)
+    const { name, email, password } = data // bisa dapetin data user
+    const regis = await register(name, email, password)
+    return regis
   }
   return (
     <>
