@@ -9,7 +9,7 @@ import { Users } from '../model/User';
 
 
 interface AuthContextProps {
-  user?:Users
+  user:Users | null;
   login:(email:string,password:string)=>Promise<any>;
   register:(name:string,email:string,password:string)=>Promise<any>;
   logout:()=>void;
@@ -17,6 +17,7 @@ interface AuthContextProps {
 }
 
 export const AuthContext = createContext<AuthContextProps>({ // ini buat objek global
+  user:null,
   login: async () => {},
   register: async () => {},
   logout: () => {},
@@ -24,20 +25,25 @@ export const AuthContext = createContext<AuthContextProps>({ // ini buat objek g
 })
 
 export const AuthProvider = ({children}:{children:React.ReactNode}) => {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState<Users | null>(null)
+  const [loading, setLoading] = useState(true)
   const navigation = useRouter();
   const pathname = usePathname();
 
   const login = async (email: string, password: string) => {
     try {
+      setLoading(true)
+
       const hasil = await AuthService.login(email, password)
       if (hasil?.access_token) {
         localStorage.setItem('token', hasil.access_token)
       }
 
+      setUser(hasil.data)
       showToast('Success login', 'success')
       navigation.push('/')
       return hasil
+
     } catch (error) {
       const pesan = getErrorMessage(error)
       showToast(pesan, 'error');
@@ -79,7 +85,7 @@ export const AuthProvider = ({children}:{children:React.ReactNode}) => {
     
   }
   return (
-    <AuthContext.Provider value={{login, logout, getToken, register}}>
+    <AuthContext.Provider value={{ user, login, logout, getToken, register}}>
       {children}
     </AuthContext.Provider>
   )

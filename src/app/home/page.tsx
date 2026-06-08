@@ -4,17 +4,23 @@ import Greetings from './greetings.section'
 import Spending from './spending.section'
 import { AddPurchase } from './addPurchase.section'
 import { Purchases } from './purchases.section'
-import { usePathname } from 'next/navigation'
+import { redirect, usePathname } from 'next/navigation'
 import { cn } from '@/utils/classNames'
 import { Prediction } from './prediction.section'
 import { Header } from '../components/ui/Header'
 import { Sidebar } from '../components/ui/Sidebar'
+import { useAuth } from '@/hooks/useAuth'
+import { showToast } from '../components/atoms/toast'
 
 
 const HomePage = () => {
   const path = usePathname()
   const isHome = path !== '/'
-  return (
+  const { user } = useAuth()
+  
+  if(user){ // ini protect route /home jd cuma bsa di akses kalo uda login aja
+    // kalo mau liat home tgl !user aja
+    return (
     <div className={cn(
       'flex flex-col min-h-[100vh]',
       path === '/' ? 'bg-transparent' : 'bg-[#1c1c1e]',
@@ -52,6 +58,11 @@ const HomePage = () => {
       </div>
     </div>
   )
+  }else{
+    showToast('Please login first', 'warning')
+    redirect('/login')
+  }
+  
 }
 
 export default HomePage
