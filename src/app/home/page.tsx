@@ -26,8 +26,6 @@ const HomePage = () => {
       path === '/' ? 'bg-transparent' : 'bg-[#1c1c1e]',
     )}>
       <Header/>
-      <div>
-        {isHome && <Sidebar/>}
         <main>
           <div className='relative z-10'>
 
@@ -56,7 +54,6 @@ const HomePage = () => {
           </div>
         </main>
       </div>
-    </div>
   )
   }else{
     showToast('Please login first', 'warning')
