@@ -1,6 +1,5 @@
 'use client'
 
-import { showToast } from '@/app/components/atoms/toast'
 import { PurchaseItem } from '@/model/Purchase'
 import { PurchaseService } from '@/services/api/purchase.service'
 import React, { createContext, useState } from 'react'
@@ -8,9 +7,9 @@ import React, { createContext, useState } from 'react'
 
 interface PurchaseProps {
   purchases: PurchaseItem[]
-  create:({title, category, date, price}:PurchaseItem)=>{},
+  create:(body: PurchaseItem)=>Promise<any>,
   read:(id:string)=>Promise<any>,
-  update:()=>{},
+  update:(body:PurchaseItem)=>Promise<any>,
 }
 
 export const PurchaseContext = createContext<PurchaseProps>({
@@ -23,18 +22,18 @@ export const PurchaseContext = createContext<PurchaseProps>({
 export const PurchaseProvider = ({children}:{children:React.ReactNode}) => {
   
   const [ purchases, setPurchases ] = useState<PurchaseItem[]>([])
-  const [loading, setLoading] = useState(false)
 
-  const create = async (body:any) => {
-    setLoading(true)
+  const create = async (body:PurchaseItem) => {
+
     try {
       const res = await PurchaseService.create(body)
       return res
     } catch (error) {
-      console.log(error)
-    }
+      console.error(error)
+      throw error
+    } 
   }
-  const read = async (user_id:any) => {
+  const read = async (user_id:string) => {
     try {
       const hasil = await PurchaseService.read(user_id)
       if (hasil) {
@@ -42,11 +41,18 @@ export const PurchaseProvider = ({children}:{children:React.ReactNode}) => {
       }
       return hasil
     } catch (error) {
-      console.log(error)
+      console.error(error)
+      throw error
     }
   }
-  const update = async () => {
-    
+  const update = async (body:PurchaseItem) => {
+    try {
+      const updet = await PurchaseService.update(body)
+      return updet
+    } catch (error) {
+      console.error(error)
+      throw error
+    }
   }
   
   return (

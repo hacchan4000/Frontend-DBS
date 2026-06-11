@@ -27,31 +27,43 @@ const PopUp = ({setPopUp}:PopUpProps) => {
     title: Joi.string().required(),
     category: Joi.string().required(),
     date: Joi.string().required(),
-    price: Joi.string().required(),
+    price: Joi.number().required(),
   })
 
-  const { handleSubmit, control, formState:{ isValid, isSubmitting} } = useForm({ //
+  const { handleSubmit, control, formState:{ isValid, isSubmitting} } = useForm<PurchaseItem>({ 
     resolver:joiResolver(purchaseSchema),
     mode:'onChange', // strategi validasi sblm submit
     defaultValues:{ // nilai default untuk form yg nanti akan di cached
       title:'',
       category:'',
       date:'',
-      price:''
+      price:0
     }
   })
+  
 
   const onSubmit = async(data: PurchaseItem) => {
-    const body = {user_id:user?.id, ...data}
-    const hasil = await create(body)
+    try {
+      if (!user?.id) {
+        showToast('User not found', 'error')
+        return
+      }
+      const body = {user_id:user?.id, ...data}
+      const hasil = await create(body)
 
-    if (hasil) {
-      showToast('berhasil add purchase','success')
-    } else{
-      showToast('gagal add purchase','error')
+      if (hasil) {
+        showToast('berhasil add purchase','success')
+      }
+      setPopUp(false)
+
+    } catch (error) {
+      showToast(
+        error instanceof Error
+          ? error.message
+          : 'gagal add purchase',
+        'error'
+      )
     }
-    setPopUp(false)
-    return hasil
   }
 
   return (
@@ -81,7 +93,7 @@ const PopUp = ({setPopUp}:PopUpProps) => {
             value={ field.value ? Number(field.value).toLocaleString('id-ID') : '' }
             onChange={(e) => {
               const raw = e.target.value.replace(/\./g, '');
-              field.onChange(raw);
+              field.onChange(raw === '' ? undefined : Number(raw));
             }}
             error={fieldState.error?.message}/>
         )} />
