@@ -9,7 +9,7 @@ import React, { createContext, useState } from 'react'
 interface PurchaseProps {
   purchases: PurchaseItem[]
   create:({title, category, date, price}:PurchaseItem)=>{},
-  read:()=>{},
+  read:(id:string)=>Promise<any>,
   update:()=>{},
 }
 
@@ -21,26 +21,29 @@ export const PurchaseContext = createContext<PurchaseProps>({
 })
 
 export const PurchaseProvider = ({children}:{children:React.ReactNode}) => {
+  
   const [ purchases, setPurchases ] = useState<PurchaseItem[]>([])
   const [loading, setLoading] = useState(false)
 
-  const create = async ({title, category, date, price}:PurchaseItem) => {
+  const create = async (body:any) => {
     setLoading(true)
-
     try {
-      const body = { title, category, date, price }
       const res = await PurchaseService.create(body)
-
-      setPurchases(res.data)
-      showToast('Success add purchase', 'success')
-
       return res
     } catch (error) {
-      
+      console.log(error)
     }
   }
-  const read = async () => {
-    
+  const read = async (user_id:any) => {
+    try {
+      const hasil = await PurchaseService.read(user_id)
+      if (hasil) {
+        setPurchases(hasil)
+      }
+      return hasil
+    } catch (error) {
+      console.log(error)
+    }
   }
   const update = async () => {
     

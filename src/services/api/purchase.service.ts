@@ -10,10 +10,11 @@ export const PurchaseService = {
       authorization:true
     })
   },
-  read:()=>{
+  read:(user_id:number | undefined)=>{ // untuk ngambil semua purchase oleh user tertentu
     return ApiService({
       url:'purchases',
       method:'GET',
+      body: user_id,
       authorization:true
     })
   },

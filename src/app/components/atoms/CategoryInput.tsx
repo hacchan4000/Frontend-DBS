@@ -30,10 +30,10 @@ export default function CategoryInput({
           label={label}
           onChange={onChange}
         >
-          <MenuItem value="Foods">Foods</MenuItem>
-          <MenuItem value="Shopping">Shopping</MenuItem>
-          <MenuItem value="Entertainment">Entertainment</MenuItem>
-          <MenuItem value="Subscription">Subscription</MenuItem>
+          <MenuItem value="60131">Foods</MenuItem>
+          <MenuItem value="60132">Shopping</MenuItem>
+          <MenuItem value="60133">Entertainment</MenuItem>
+          <MenuItem value="60134">Subscription</MenuItem>
         </Select>
 
         {error && (

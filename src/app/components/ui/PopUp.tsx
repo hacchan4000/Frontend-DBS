@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import TextInput from '../atoms/TextInput'
 import { Controller, useForm } from 'react-hook-form'
 import Button from '../atoms/Button'
@@ -12,12 +11,16 @@ import { PurchaseItem } from '@/model/Purchase'
 import CategoryInput from '../atoms/CategoryInput'
 import DateInput from '../atoms/DateInput'
 import dayjs from 'dayjs';
+import { useAuth } from '@/hooks/useAuth'
+import React from 'react'
+import { showToast } from '../atoms/toast'
 
 
 interface PopUpProps {
   setPopUp: React.Dispatch<React.SetStateAction<boolean>>
 }
 const PopUp = ({setPopUp}:PopUpProps) => {
+  const { user } = useAuth()
   const { create } = usePurchase();
 
   const purchaseSchema = Joi.object({
@@ -39,8 +42,14 @@ const PopUp = ({setPopUp}:PopUpProps) => {
   })
 
   const onSubmit = async(data: PurchaseItem) => {
-    const { title, category, date, price } = data
-    const hasil = await create(data)
+    const body = {user_id:user?.id, ...data}
+    const hasil = await create(body)
+
+    if (hasil) {
+      showToast('berhasil add purchase','success')
+    } else{
+      showToast('gagal add purchase','error')
+    }
     setPopUp(false)
     return hasil
   }
