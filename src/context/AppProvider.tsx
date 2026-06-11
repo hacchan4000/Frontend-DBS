@@ -1,10 +1,13 @@
 import { AuthProvider } from "./AuthContext";
 import React from 'react'
+import { PurchaseProvider } from "./PurchaseContext"
 
 const AppProvider = ({children}:{children:React.ReactNode}) => {
   return (
     <AuthProvider>
-      {children}
+      <PurchaseProvider>
+        {children}
+      </PurchaseProvider>
     </AuthProvider>
   )
 }

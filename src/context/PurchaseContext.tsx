@@ -3,7 +3,6 @@
 import { showToast } from '@/app/components/atoms/toast'
 import { PurchaseItem } from '@/model/Purchase'
 import { PurchaseService } from '@/services/api/purchase.service'
-import { useRouter } from 'next/router'
 import React, { createContext, useState } from 'react'
 
 
@@ -16,7 +15,7 @@ interface PurchaseProps {
 
 export const PurchaseContext = createContext<PurchaseProps>({
   purchases:[],
-  create:async() => {},
+  create:async () => {},
   read:async() => {},
   update:async() => {},
 })
@@ -24,7 +23,6 @@ export const PurchaseContext = createContext<PurchaseProps>({
 export const PurchaseProvider = ({children}:{children:React.ReactNode}) => {
   const [ purchases, setPurchases ] = useState<PurchaseItem[]>([])
   const [loading, setLoading] = useState(false)
-  const navigation = useRouter(); 
 
   const create = async ({title, category, date, price}:PurchaseItem) => {
     setLoading(true)
