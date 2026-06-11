@@ -1,12 +1,18 @@
-import { AuthProvider } from "./AuthContext";
-import React from 'react'
-import { PurchaseProvider } from "./PurchaseContext"
+'use client'
 
-const AppProvider = ({children}:{children:React.ReactNode}) => {
+import React from 'react'
+import { AuthProvider } from './AuthContext'
+import { PurchaseProvider } from './PurchaseContext'
+import { LocalizationProvider } from '@mui/x-date-pickers'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+
+const AppProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <AuthProvider>
       <PurchaseProvider>
-        {children}
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          {children}
+        </LocalizationProvider>
       </PurchaseProvider>
     </AuthProvider>
   )

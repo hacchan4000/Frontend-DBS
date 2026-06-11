@@ -67,7 +67,14 @@ const PopUp = ({setPopUp}:PopUpProps) => {
           />
         )} />
         <Controller control={control} name='price' render={({field, fieldState})=>(
-          <TextInput label='Price' {...field} error={fieldState.error?.message}/>
+          <TextInput 
+            label="Price"
+            value={ field.value ? Number(field.value).toLocaleString('id-ID') : '' }
+            onChange={(e) => {
+              const raw = e.target.value.replace(/\./g, '');
+              field.onChange(raw);
+            }}
+            error={fieldState.error?.message}/>
         )} />
           
         <div className='flex flex-row'>
