@@ -37,7 +37,7 @@ export const PurchaseProvider = ({children}:{children:React.ReactNode}) => {
     try {
       const hasil = await PurchaseService.read(user_id)
       if (hasil) {
-        setPurchases(hasil)
+        setPurchases(hasil.data)
       }
       console.log('READ RESPONSE:', hasil)
       return purchases
