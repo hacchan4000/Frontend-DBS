@@ -15,7 +15,7 @@ export function PurchaseRow({ purchase, showDivider = true }: PurchaseRowProps) 
     <>
       <div className={styles.row}>
         <div className={styles.leading}>
-          <CategoryIcon category={purchase.category} />
+          <CategoryIcon category={purchase.category_id} />
           <div className={styles.details}>
             <p className={styles.name}>{purchase.title}</p>
             <p className={styles.date}>{purchase.date}</p>

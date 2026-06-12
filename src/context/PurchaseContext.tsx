@@ -39,7 +39,7 @@ export const PurchaseProvider = ({children}:{children:React.ReactNode}) => {
       if (hasil) {
         setPurchases(hasil.data)
       }
-      console.log('READ RESPONSE:', hasil)
+      console.log('READ RESPONSE:', hasil.data)
       return purchases
     } catch (error) {
       console.error(error)

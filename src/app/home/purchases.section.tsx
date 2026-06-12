@@ -14,7 +14,7 @@ export function Purchases() { // Latest purchases
   const { purchases, read } = usePurchase()
 
 
-  useEffect(()=>{ if(user?.id) read(user.id) },[user?.id])
+  useEffect(()=>{ if(user?.id) read(user.id) },)
   
   const latestPurchases = purchases.slice(0, 4)
   const reminderSubs = subscriptions.slice(0, 4)

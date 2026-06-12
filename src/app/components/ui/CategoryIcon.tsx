@@ -8,7 +8,7 @@ interface CategoryIconProps {
 }
 
 export function CategoryIcon({ category, className }: CategoryIconProps) {
-  const { iconSrc, label } = categoryConfig[category]
+  const { iconSrc, label } = categoryConfig[String(category)]
 
   return (
     <img

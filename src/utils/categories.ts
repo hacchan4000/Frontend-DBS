@@ -1,8 +1,7 @@
 import type { Category } from './data'
 
 export const categoryConfig: Record<
-  any,
-  { label: string; iconSrc: string }
+  any,{ label: string; iconSrc: string }
 > = {
   '60131': {
     label: 'food & drinks',
