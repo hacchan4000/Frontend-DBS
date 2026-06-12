@@ -1,10 +1,10 @@
-import type { Subscription } from '../../../utils/data'
+import { SubscriptionItem } from '@/model/Subscription'
 import { formatCurrency } from '../../../utils/format'
 import { Divider } from './Divider'
 import styles from './SubscriptionRow.module.css'
 
 interface SubscriptionRowProps {
-  subscription: Subscription
+  subscription: SubscriptionItem
   showDivider?: boolean
 }
 
@@ -16,10 +16,10 @@ export function SubscriptionRow({
     <>
       <div className={styles.row}>
         <div className={styles.details}>
-          <p className={styles.name}>{subscription.name}</p>
-          <p className={styles.dueDate}>{subscription.dueDate}</p>
+          <p className={styles.name}>{subscription.title}</p>
+          <p className={styles.dueDate}>{subscription.subscription_end_date}</p>
         </div>
-        <p className={styles.amount}>{formatCurrency(subscription.amount)}</p>
+        <p className={styles.amount}>{formatCurrency(subscription.price)}</p>
       </div>
       {showDivider && <Divider />}
     </>
