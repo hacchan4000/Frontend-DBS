@@ -1,22 +1,30 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import listStyles from '../components/ui/ListPanel.module.css'
-import { subscriptions } from '@/utils/data'
 import { ListPanel } from '@/app/components/ui/ListPanel'
 import { SubscriptionRow } from '@/app/components/ui/SubscriptionRow'
+import { usePurchase } from '@/hooks/usePurchase'
+import { useAuth } from '@/hooks/useAuth'
+import { Sidebar } from '../components/ui/Sidebar'
 
 
 export default function SubscriptionsPage() {
+  const { user } = useAuth();
+  const { subscriptions, read } = usePurchase()
   const [query, setQuery] = useState('')
+
+  useEffect(()=>{ if(user?.id) read(user.id) },)
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
     if (!q) return subscriptions
-    return subscriptions.filter((s) => s.name.toLowerCase().includes(q))
+    return subscriptions.filter((s) => s.title.toLowerCase().includes(q))
   }, [query])
 
   return (
+    <>
+    <Sidebar />
     <ListPanel
       title="Subscriptions"
       searchValue={query}
@@ -26,7 +34,7 @@ export default function SubscriptionsPage() {
       <div>
         {filtered.map((subscription, index) => (
           <SubscriptionRow
-            key={subscription.id}
+            key={index}
             subscription={subscription}
             showDivider={index < filtered.length - 1}
           />
@@ -36,5 +44,7 @@ export default function SubscriptionsPage() {
         )}
       </div>
     </ListPanel>
+    </>
+    
   )
 }
