@@ -16,7 +16,6 @@ export function Purchases() { // Latest purchases
 
   useEffect(()=>{ if(user?.id) read(user.id) },[user?.id])
   
-  console.log(`ini list purchases : ${purchases}`)
   const latestPurchases = purchases.slice(0, 4)
   const reminderSubs = subscriptions.slice(0, 4)
 

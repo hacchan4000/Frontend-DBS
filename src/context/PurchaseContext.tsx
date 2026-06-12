@@ -39,6 +39,7 @@ export const PurchaseProvider = ({children}:{children:React.ReactNode}) => {
       if (hasil) {
         setPurchases(hasil)
       }
+      console.log('READ RESPONSE:', hasil)
       return purchases
     } catch (error) {
       console.error(error)
