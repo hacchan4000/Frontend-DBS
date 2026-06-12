@@ -30,7 +30,7 @@ const PopUp = ({setPopUp}:PopUpProps) => {
     price: Joi.number().required(),
   })
 
-  const { handleSubmit, control, formState:{ isValid, isSubmitting} } = useForm<PurchaseItem>({ 
+  const { handleSubmit, watch, control, formState:{ isValid, isSubmitting} } = useForm<PurchaseItem>({ 
     resolver:joiResolver(purchaseSchema),
     mode:'onChange', // strategi validasi sblm submit
     defaultValues:{ // nilai default untuk form yg nanti akan di cached
@@ -40,6 +40,7 @@ const PopUp = ({setPopUp}:PopUpProps) => {
       price:0
     }
   })
+  const category = watch('category')
   
 
   const onSubmit = async(data: PurchaseItem) => {
@@ -65,6 +66,7 @@ const PopUp = ({setPopUp}:PopUpProps) => {
       )
     }
   }
+  
 
   return (
     <div className='fixed top-110 right-[-102] w-screen h-screen z-50 flex items-center justify-center bg-black/70 overflow-hidden overscroll-none'>
@@ -79,9 +81,10 @@ const PopUp = ({setPopUp}:PopUpProps) => {
         <Controller control={control} name='category' render={({field, fieldState})=>(
           <CategoryInput label='Category' {...field} error={fieldState.error?.message}/>
         )} />
+        
         <Controller control={control} name='date' render={({field, fieldState})=>(
           <DateInput 
-            label='Date' 
+            label={category === '60134' ? 'Subscription Exp Date': 'Date Bought'}
             value={field.value ? dayjs(field.value) : null} 
             onChange={(date) => field.onChange(date?.format('YYYY-MM-DD'))} 
             error={fieldState.error?.message}
