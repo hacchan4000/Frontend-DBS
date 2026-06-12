@@ -40,21 +40,23 @@ export const PurchaseProvider = ({children}:{children:React.ReactNode}) => {
   const read = async (user_id:number | undefined) => {
     try {
       const hasil = await PurchaseService.read(user_id)
+ 
+      if (!hasil?.data) return
 
-      if (hasil) {
-        const listPurchases = hasil.data
-
-        for (let index = 0; index < listPurchases.length; index++) {
-          const purchase = listPurchases[index];
-          if (purchase.category_id === "60134") {
-            setSubscriptions(purchase)
-          } else{
-            setPurchases(purchase)
-          }
-        }
-
+      const listPurchases = hasil.data
+      const subscriptionsOnly = listPurchases.filter(
+        (item: PurchaseItem) => String(item.category_id) === '60134'
+      )
+      const purchasesOnly = listPurchases.filter(
+        (item: PurchaseItem) => String(item.category_id) !== '60134'
+      )
+      setSubscriptions(subscriptionsOnly)
+      setPurchases(purchasesOnly)
+      
+      return { 
+        purchases: purchasesOnly,
+        subscriptions: subscriptionsOnly
       }
-      return purchases
     } catch (error) {
       console.error(error)
       throw error

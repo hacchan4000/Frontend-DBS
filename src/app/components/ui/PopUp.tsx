@@ -25,7 +25,7 @@ const PopUp = ({setPopUp}:PopUpProps) => {
 
   const purchaseSchema = Joi.object({
     title: Joi.string().required(),
-    category: Joi.string().required(),
+    category_id: Joi.string().required(),
     date: Joi.string().required(),
     price: Joi.number().required(),
   })

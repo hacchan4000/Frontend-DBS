@@ -21,13 +21,13 @@ export default function CategoryInput({
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth error={!!error}>
-        <InputLabel id="category-label">{label}</InputLabel>
+        <InputLabel id="category-label">category</InputLabel>
 
         <Select
           labelId="category-label"
           id="category"
           value={value}
-          label={label}
+          label='category'
           onChange={onChange}
         >
           <MenuItem value="60131">Foods</MenuItem>
