@@ -8,7 +8,7 @@ import React, { createContext, useState } from 'react'
 interface PurchaseProps {
   purchases: PurchaseItem[]
   create:(body: PurchaseItem)=>Promise<any>,
-  read:(id:string)=>Promise<any>,
+  read:(id:number | undefined)=>Promise<any>,
   update:(body:PurchaseItem)=>Promise<any>,
 }
 
@@ -33,13 +33,13 @@ export const PurchaseProvider = ({children}:{children:React.ReactNode}) => {
       throw error
     } 
   }
-  const read = async (user_id:string) => {
+  const read = async (user_id:number | undefined) => {
     try {
       const hasil = await PurchaseService.read(user_id)
       if (hasil) {
         setPurchases(hasil)
       }
-      return hasil
+      return purchases
     } catch (error) {
       console.error(error)
       throw error

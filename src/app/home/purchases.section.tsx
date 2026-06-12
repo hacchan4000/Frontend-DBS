@@ -6,11 +6,18 @@ import { SectionTitle } from '@/app/components/ui/SectionTitle'
 import { PurchaseRow } from '@/app/components/ui/PurchaseRow'
 import { SubscriptionRow } from '@/app/components/ui/SubscriptionRow'
 import { usePurchase } from '@/hooks/usePurchase'
+import { useAuth } from '@/hooks/useAuth'
+import { useEffect } from 'react'
 
 export function Purchases() { // Latest purchases
-  const { purchases } = usePurchase();
-  console.log(purchases)
-  const latestPurchases = purchases2.slice(0, 4)
+  const { user } = useAuth();
+  const { purchases, read } = usePurchase()
+
+
+  useEffect(()=>{ if(user?.id) read(user.id) },[user?.id])
+  
+  console.log(`ini list purchases : ${purchases}`)
+  const latestPurchases = purchases.slice(0, 4)
   const reminderSubs = subscriptions.slice(0, 4)
 
   const listBlock = 'flex flex-col gap-2 mt-3 pt-2 pr-4 pb-2 pl-2 rounded-[8px] bg-[#323643]'
@@ -21,7 +28,7 @@ export function Purchases() { // Latest purchases
       <div className={listBlock}>
         {latestPurchases.map((purchase, index) => (
           <PurchaseRow
-            key={purchase.id}
+            key={index}
             purchase={purchase}
             showDivider={index < latestPurchases.length - 1}
           />

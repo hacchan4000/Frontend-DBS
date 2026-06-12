@@ -1,22 +1,22 @@
 import type { Category } from './data'
 
 export const categoryConfig: Record<
-  Category,
+  any,
   { label: string; iconSrc: string }
 > = {
-  'food-drinks': {
+  '60131': {
     label: 'food & drinks',
     iconSrc: '/Icon-Food.png',
   },
-  shopping: {
+  '60132': {
     label: 'shoping',
     iconSrc: '/Icon-Shopping.png',
   },
-  entertainment: {
+  '60133': {
     label: 'entertainment',
     iconSrc: '/Icon-Entertainment.png',
   },
-  subscription: {
+  '60134': {
     label: 'subscription',
     iconSrc: '/Icon-Subscription.png',
   },

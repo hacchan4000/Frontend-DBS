@@ -3,7 +3,7 @@ import { categoryConfig } from '../../../utils/categories'
 import styles from './CategoryIcon.module.css'
 
 interface CategoryIconProps {
-  category: Category
+  category: any
   className?: string
 }
 
