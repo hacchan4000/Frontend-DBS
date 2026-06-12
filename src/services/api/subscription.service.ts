@@ -5,29 +5,30 @@ export const SubscriptionService = {
   
   create:(body:any)=>{
     return ApiService({
-      url:'subscription',
+      url:'subscriptions',
       method:'POST',
       body,
       authorization:true
     })
   },
-  read:()=>{
+  read:(user_id:any | undefined)=>{
     return ApiService({
-      url:'subscription',
+      url:'subscriptions',
       method:'GET',
+      params: {user_id},
       authorization:true
     })
   },
-  update:()=>{
+  update:(body:any)=>{
     return ApiService({
-      url:'subscription',
+      url:'subscriptions',
       method:'POST',
       authorization:true
     })
   },
   delete:()=>{
     return ApiService({
-      url:'subscription',
+      url:'subscriptions',
       method:'POST',
       authorization:true
     })
