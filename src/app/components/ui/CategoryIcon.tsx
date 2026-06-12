@@ -3,12 +3,12 @@ import { categoryConfig } from '../../../utils/categories'
 import styles from './CategoryIcon.module.css'
 
 interface CategoryIconProps {
-  category: Category
+  category: any
   className?: string
 }
 
 export function CategoryIcon({ category, className }: CategoryIconProps) {
-  const { iconSrc, label } = categoryConfig[category]
+  const { iconSrc, label } = categoryConfig[String(category)]
 
   return (
     <img

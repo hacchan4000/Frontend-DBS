@@ -27,7 +27,7 @@ export interface CategoryBreakdown {
   label: string
 }
 
-export const purchases: Purchase[] = [
+export const purchases2: Purchase[] = [
   {
     id: '1',
     name: 'McDonalds',

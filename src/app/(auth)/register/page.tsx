@@ -8,6 +8,7 @@ import TextInput from '../../components/atoms/TextInput';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { userSchema } from './schema';
 import { useAuth } from '@/hooks/useAuth';
+import { showToast } from '@/app/components/atoms/toast';
 
 
 type FormData = {
@@ -43,6 +44,12 @@ const Page = () => {
     // gimana cara aku dapetin value name, email n pass
     const { name, email, password } = data // bisa dapetin data user
     const regis = await register(name, email, password)
+
+    if (regis) {
+      showToast('berhasil registrasi','success')
+      router.push('/')
+
+    }
     return regis
   }
   return (

@@ -64,7 +64,7 @@ export const ApiService = async ({
   const response = await fetch(fullUrl, {
     method,
     headers: {
-      ...DefaultHeaders,
+      ...(isFormData ? {} : DefaultHeaders),
 
       ...(token && {
         Authorization: `Bearer ${token}`,

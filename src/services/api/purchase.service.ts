@@ -10,17 +10,18 @@ export const PurchaseService = {
       authorization:true
     })
   },
-  read:()=>{
+  read:(user_id:any | undefined)=>{
     return ApiService({
       url:'purchases',
       method:'GET',
-      authorization:true
+      params:{ user_id }
     })
-  },
-  update:()=>{
+},
+  update:(body:any)=>{
     return ApiService({
       url:'purchases',
       method:'POST',
+      body,
       authorization:true
     })
   },

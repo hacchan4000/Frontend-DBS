@@ -1,12 +1,21 @@
-import { purchases, subscriptions } from '../../utils/data'
+import { purchases2, subscriptions } from '../../utils/data'
 import { cn } from '../../utils/classNames'
 import styles from './LatestPurchaseCard.module.css'
 import Card from '../components/atoms/Card'
 import { SectionTitle } from '@/app/components/ui/SectionTitle'
 import { PurchaseRow } from '@/app/components/ui/PurchaseRow'
 import { SubscriptionRow } from '@/app/components/ui/SubscriptionRow'
+import { usePurchase } from '@/hooks/usePurchase'
+import { useAuth } from '@/hooks/useAuth'
+import { useEffect } from 'react'
 
 export function Purchases() { // Latest purchases
+  const { user } = useAuth();
+  const { purchases, read } = usePurchase()
+
+
+  useEffect(()=>{ if(user?.id) read(user.id) },)
+  
   const latestPurchases = purchases.slice(0, 4)
   const reminderSubs = subscriptions.slice(0, 4)
 
@@ -18,7 +27,7 @@ export function Purchases() { // Latest purchases
       <div className={listBlock}>
         {latestPurchases.map((purchase, index) => (
           <PurchaseRow
-            key={purchase.id}
+            key={index}
             purchase={purchase}
             showDivider={index < latestPurchases.length - 1}
           />
