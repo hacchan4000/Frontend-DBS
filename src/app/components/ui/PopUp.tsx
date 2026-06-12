@@ -35,12 +35,12 @@ const PopUp = ({setPopUp}:PopUpProps) => {
     mode:'onChange', // strategi validasi sblm submit
     defaultValues:{ // nilai default untuk form yg nanti akan di cached
       title:'',
-      category:'',
+      category_id:'',
       date:'',
       price:0
     }
   })
-  const category = watch('category')
+  const category = watch('category_id')
   
 
   const onSubmit = async(data: PurchaseItem) => {
@@ -78,7 +78,7 @@ const PopUp = ({setPopUp}:PopUpProps) => {
         <Controller control={control} name='title' render={({field, fieldState})=>(
           <TextInput label='Title' {...field} error={fieldState.error?.message}/>
         )} />
-        <Controller control={control} name='category' render={({field, fieldState})=>(
+        <Controller control={control} name='category_id' render={({field, fieldState})=>(
           <CategoryInput label='Category' {...field} error={fieldState.error?.message}/>
         )} />
         
